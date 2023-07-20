@@ -1,0 +1,35 @@
+/Users/alexander/PycharmProjects/Algo/venv/bin/python /Users/alexander/PycharmProjects/Algo/venv/Hash_Table.py 
+My hash table:
+ [('apple', 2), ('bananas', 23), ('fruits', 34)]
+Is 'apple' in hash table?:
+ True
+Is 'box' in hash table?:
+ False
+Is 'fruits' in hash table?:
+ True
+The length of hash table:
+ 3
+Filling hash table...Please wait
+100%|██████████| 7/7 [00:01<00:00,  4.18it/s]
+My hash table:
+ [('serpentlike', 9), ('apple', 2), ('finched', 1), ('aroint', 8), ('bananas', 23), ('threne', 1), ('haemoglobic', 4), ('cuminseed', 3), ('foxgloves', 9), ('fruits', 34)]
+The length of hash table:
+ 10
+Count of collisions:
+ 0
+Added 'fruits' into hash table.
+My hash table:
+ [('serpentlike', 9), ('apple', 2), ('finched', 1), ('aroint', 8), ('bananas', 23), ('threne', 1), ('haemoglobic', 4), ('cuminseed', 3), ('foxgloves', 9), ('fruits', 3333)]
+The length of hash table:
+ 10
+Count of collisions:
+ 1
+Filling hash table...Please wait
+My hash table:
+ [('serpentlike', 9), ('apple', 2), ('finched', 1), ('cat', 49), ('aroint', 8), ('bananas', 23), ('pencil', 8), ('man', 15), ('threne', 1), ('haemoglobic', 4), ('cuminseed', 3), ('foxgloves', 9), ('fruits', 3333)]
+The length of hash table:
+ 13
+Count of collisions:
+ 1
+
+Process finished with exit code 0
