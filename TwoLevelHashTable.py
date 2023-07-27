@@ -43,44 +43,31 @@ class TwoLevelHashTable:
         b = randint(1, MAXP) % MAXP
         return a, b
 
-    def get_index(self, key) -> int:
-        a, b = self.get_param()
+    def primary_hash(self, key, a, b) -> int:
         hc = self.get_hash_code(key)
         index = (a * hc + b) % MAXP % self.size
         return index
 
-    def primary_hash(self, key) -> int:
+    def secondary_hash(self, key, a, b) -> int:
         hc = self.get_hash_code(key)
-        return hc % self.size
-
-    def secondary_hash(self, key) -> int:
-        hc = self.get_hash_code(key)
-        return hc % (self.size // 2)
+        index = (a * hc + b) % MAXP % self.size
+        return index
 
     def insert(self, key, value):
-        primary_index = self.get_index(key)
+        a, b = self.get_param()
+        primary_index = self.primary_hash(key, a, b)
         if self.primary_table[primary_index] is None:
             self.primary_table[primary_index] = {}
         else:
             self.collision += 1
         secondary_table = self.primary_table[primary_index]
 
-        secondary_index = self.get_index(key)
+        a, b = self.get_param()
+        secondary_index = self.secondary_hash(key, a, b)
         if secondary_table.get(secondary_index) is None:
             secondary_table[secondary_index] = {}
 
         secondary_table[secondary_index][key] = value
-
-    def get(self, key):
-        primary_index = self.primary_hash(key)
-        secondary_table = self.primary_table[primary_index]
-
-        if secondary_table is not None:
-            secondary_index = self.secondary_hash(key)
-            if secondary_table.get(secondary_index) is not None:
-                return secondary_table[secondary_index].get(key)
-
-        return None
 
 
 if __name__ == '__main__':
@@ -90,5 +77,5 @@ if __name__ == '__main__':
     for k, v in tqdm(ht.list_to_dict().items()):
         ht.insert(k, v)
     print('Count of collisions after first hashing: ', ht.collision)
-    print(f'After first stage percent of collisions:  {ht.collision / len(ht) * 100:.2f}%')
-    print(f'The length of hash table {len(ht)} key-value pairs')
+    print(f'After first hashing percent of collisions:  {ht.collision / len(ht) * 100:.2f}%')
+    print(f'The total length of hash table is {len(ht)} key-value pairs')
