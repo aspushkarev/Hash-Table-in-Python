@@ -1,0 +1,6 @@
+100%|██████████| 194204/194204 [00:01<00:00, 99500.61it/s] 
+Count of collisions after first hashing:  71444
+After first hashing percent of collisions:  36.79%
+The total length of hash table is 194205 key-value pairs
+
+Process finished with exit code 0
